@@ -1,98 +1,53 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+//นำเข้า  วิิว    ข้อความ             จาก   ชื่อไลบรารี่
+import { StyleSheet, Text, View, Image} from 'react-native';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+//ส่งออก เริ่มต้น    ฟังก์ชั่น  ชื่อฟังชั่น แล้วใช้ร่วมกัน//
+export default function App(){
+  return(
+   <View style={homeStyle.container} >
+      <Text style={homeStyle.title}>wachirawt</Text>
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
+      <Image 
+      source={require('@/assets/po(1).jpeg')}
+        style={{
+          width: 200, //กว่าง
+          height: 200, //สูง
+          borderRadius: 150, //มุมโค้ง
+          borderWidth: 10, //ขอบหนา
+          borderColor: "lightblue", //สีขอบ
+        }}
+      />
+      <Image 
+        source={{uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJP0lLF4sxZxb77yv810KsSZ2YGXcRZ-wzdg_dwOilxQ&s=10"}}
+         style={{
+          width: 200, //กว่าง
+          height: 200, //สูง
+          borderRadius: 150, //มุมโค้ง
+          borderWidth: 10, //ขอบหนา
+          borderColor: "lightblue", //สีขอบ
+        }}
+      />
+
+      <View>
+        <Text>😭 งานเยอะ</Text>
+        <Text>🫥 หายตัว</Text>
+      </View>
+
+    </View>
+  )
 }
-
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
-
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
-
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
+// สร้างสไตล์ตกแต่ว
+const homeStyle = StyleSheet.create({
+  container:{
+   backgroundColor: "red", //สีพื้นหลัง
+   flex:1, //ขยายเต็มพื้นที่
+   alignItems: "center"
   },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
-});
+  title:{
+    color: "white",//สีตัวอักษร
+    fontSize: 32, //ขนาดอักษร
+    fontWeight: 700, //ความหนาตัวอักษร 100-900
+    fontStyle: "italic", //เอียง
+    textAlign: "center"// 
+  }
+})
