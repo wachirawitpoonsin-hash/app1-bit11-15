@@ -1,11 +1,11 @@
 //นำเข้า  วิิว    ข้อความ             จาก   ชื่อไลบรารี่
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 //ส่งออก เริ่มต้น    ฟังก์ชั่น  ชื่อฟังชั่น แล้วใช้ร่วมกัน//
 export default function App(){
   return(
    <View style={homeStyle.container} >
-      <Text style={homeStyle.title}>wachirawt</Text>
+      <Text style={homeStyle.title}>wachirawt poonsin</Text>
 
       <Image 
       source={require('@/assets/po(1).jpeg')}
