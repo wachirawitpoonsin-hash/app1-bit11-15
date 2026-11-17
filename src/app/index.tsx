@@ -18,9 +18,11 @@ export default function App(){
         }}
       />
       <Text style={homeStyle.title}>wachirawt poonsin</Text>
-       <View>
-        <Text>ห้อง BIT1/1</Text>
+       <View style={{ backgroundColor: "white", padding: 50, gap: 10 }}>
+        <Text>ห้อง BIT1/1 เลขที่15</Text>
+        
         <Text>Fake@gmail.com</Text>
+        <Text>เบอร์ 096-xxx- xxxx</Text>
       </View>
     
         <View style={{ flexDirection: "row"}}>
